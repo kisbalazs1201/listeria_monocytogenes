@@ -1,0 +1,18 @@
+# Snakemake
+.snakemake/
+**/.snakemake/
+results/
+logs/
+resources/
+
+# Conda
+.conda/
+*.pyc
+__pycache__/
+
+# System
+.DS_Store
+._*
+**/.DS_Store
+**/._*
+*.swp

@@ -1,0 +1,20 @@
+configfile: "config/config.yaml"
+
+include: "rules/common.smk"
+include: "rules/fetch.smk"
+include: "rules/filter.smk"
+include: "rules/assembly.smk"
+include: "rules/checkv.smk"
+include: "rules/pharokka.smk"
+
+rule all:
+    input:
+        expand("results/input/{accession}.fastq.gz", accession=accessions),
+        expand("results/filtered/{accession}_filt.fastq.gz", accession=accessions),
+        expand("results/filtered/{accession}_stats.html", accession=accessions),
+        expand("results/filtered/{accession}_stats.json", accession=accessions),
+        expand("results/assembly/{accession}.fasta", accession=accessions),
+        expand("results/checkv/{accession}", accession=accessions),
+        expand("results/hq/{accession}_hq.tsv", accession=accessions),
+        expand("results/hq/{accession}_hq.fasta", accession=accessions),
+        expand("results/pharokka/{accession}", accession=accessions)

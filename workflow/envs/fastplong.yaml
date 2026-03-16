@@ -1,0 +1,16 @@
+name: fastplong
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - _openmp_mutex=4.5=20_gnu
+  - fastplong=0.4.1=h224cc79_0
+  - isa-l=2.31.1=hb9d3cd8_1
+  - libdeflate=1.22=hb9d3cd8_0
+  - libgcc=15.2.0=he0feb66_18
+  - libgcc-ng=15.2.0=h69a702a_18
+  - libgomp=15.2.0=he0feb66_18
+  - libhwy=1.1.0=h00ab1b0_0
+  - libstdcxx=15.2.0=h934c35e_18
+  - libstdcxx-ng=15.2.0=hdf11a46_18

@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniforge-version: latest
+          activate-environment: snakemake
+          channels: bioconda,conda-forge
+
+      - name: Install Snakemake
+        shell: bash -l {0}
+        run: conda install -y snakemake
+
+      - name: Lint workflow
+        shell: bash -l {0}
+        run: snakemake --lint --configfile .test/config/config.yaml
+
+      - name: Dry-run workflow
+        shell: bash -l {0}
+        run: |
+          snakemake --dry-run \
+                    --use-conda \
+                    --cores 2 \
+                    --configfile .test/config/config.yaml

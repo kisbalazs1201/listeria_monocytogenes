@@ -1,0 +1,15 @@
+accessions: .test/config/accessions.txt
+
+params:
+  fastplong:
+    threads: 2
+    min_length: 1000
+    min_quality: 7
+  raven:
+    threads: 2
+  checkv:
+    threads: 2
+    database: "resources/checkv-db-v1.5"
+  pharokka:
+    threads: 2
+    database: "resources/pharokka-db"
