@@ -1,11 +1,14 @@
 configfile: "config/config.yaml"
 
+wildcard_constraints: accession="[^/]+"
+
 include: "rules/common.smk"
 include: "rules/fetch.smk"
 include: "rules/filter.smk"
 include: "rules/assembly.smk"
 include: "rules/checkv.smk"
 include: "rules/pharokka.smk"
+include: "rules/merge.smk"
 
 rule all:
     input:
@@ -17,4 +20,5 @@ rule all:
         expand("results/checkv/{accession}", accession=accessions),
         expand("results/hq/{accession}_hq.tsv", accession=accessions),
         expand("results/hq/{accession}_hq.fasta", accession=accessions),
-        expand("results/pharokka/{accession}", accession=accessions)
+        expand("results/pharokka/{accession}", accession=accessions),
+        expand("results/merged/{accession}_merged.tsv", accession=accessions)
