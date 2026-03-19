@@ -1,6 +1,8 @@
+![PHAGE WF DEMO](assets/PHAGE-WF-DEMO.png)
+
 # PHAGE WF DEMO
 
-Demo Snakemake workflow for phage discovery from Nanopore reads: filtering, assembly, CheckV quality assessment, and Pharokka annotation.
+Demo Snakemake workflow for phage discovery from Nanopore reads: filtering, assembly, quality assessment, and annotation.
 
 ## Pipeline Overview
 
@@ -49,13 +51,13 @@ snakemake --use-conda --cores 8 --ri
 snakemake --report report.html
 ```
 
-## Repository layout
+## Project structure
 
 - `workflow/` – Snakemake rules, envs, helper scripts
 - `config/` – run configuration and sample accession list
-- `results/` – pipeline outputs by stage
-- `resources/` – tool-specific databases and DB check markers
-- `logs/` – per-step logs
+- `results/` – pipeline outputs by stage *(ignored by git)*
+- `resources/` – tool-specific databases and DB check markers *(ignored by git)*
+- `logs/` – per-step logs *(ignored by git)*
 
 ## Configuration
 
