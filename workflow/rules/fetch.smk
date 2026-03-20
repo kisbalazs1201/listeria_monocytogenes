@@ -2,14 +2,14 @@ rule download:
     output:
         "data/{sample}.fastq"
 
-rule compress_fastq:
+rule filter:
     input:
-        "results/input/{accession}.fastq"
+        "data/{sample}.fastq"
     output:
-        "results/input/{accession}.fastq.gz"
-    log:
-        "logs/compress/{accession}.log"
-    conda:
-        "../envs/sra_tools.yaml"
-    shell:
-        "gzip -c {input} > {output} 2> {log}"
+        "data/filtered/{sample}.fastq"
+
+rule assembly:
+    input:
+        "data/filtered/{sample}.fastq"
+    output:
+        "results/{sample}/assembly.fasta"
