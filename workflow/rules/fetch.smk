@@ -1,16 +1,6 @@
-rule fetch_fastq:
+rule download:
     output:
-        "results/input/{accession}.fastq"
-    log:
-        "logs/fetch/{accession}.log"
-    conda:
-        "../envs/sra_tools.yaml"
-    shell:
-        """
-        prefetch {wildcards.accession} 2> {log}
-        fasterq-dump {wildcards.accession} -O results/input/ 2>> {log}
-        rm -r {wildcards.accession}
-        """
+        "data/{sample}.fastq"
 
 rule compress_fastq:
     input:
